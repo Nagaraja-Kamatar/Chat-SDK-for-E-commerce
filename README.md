@@ -2,6 +2,13 @@
 
 A plug-and-play **AI Chat SDK** designed to integrate seamlessly with any e-commerce website.
 
+<img width="1440" height="900" alt="Screenshot 2025-11-17 at 9 52 56 PM" src="https://github.com/user-attachments/assets/4b233258-323f-4469-9d68-a9ac6027932b" />
+
+
+<img width="1436" height="815" alt="Screenshot 2025-11-17 at 9 51 46 PM" src="https://github.com/user-attachments/assets/01f78ad6-be61-415c-9490-020d62dbb499" />
+
+
+
 This SDK enables customers to interact using **text**, **voice** (English, Hindi, Arabic), or **product images**, and receive AI-powered personalized product recommendations driven by:
 
 * Order history
