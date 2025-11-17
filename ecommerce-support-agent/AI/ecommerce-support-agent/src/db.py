@@ -1,0 +1,1 @@
+# This file is intended to manage database interactions, such as connecting to a database or querying data.

@@ -1,0 +1,11 @@
+title: My GitHub Pages Site
+description: This is a sample site hosted on GitHub Pages.
+theme: minima
+url: https://yourusername.github.io/github-pages-site
+baseurl: ""
+author:
+  name: Your Name
+  email: your.email@example.com
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
