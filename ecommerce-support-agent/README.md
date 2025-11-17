@@ -1,97 +1,105 @@
-# E-Commerce Customer Support Agent
-
-An agentic system built with OpenAI Agents SDK that simulates a customer support assistant for an e-commerce website.
-
-<img width="953" alt="image" src="https://github.com/user-attachments/assets/d3067f38-e71c-425b-8a73-3f6aa8513295" />
-
-
-## Features
-
-- Natural language interactions with customers
-- Order status inquiries
-- Return initiation
-- FAQ lookup
-- Conversation memory across multiple turns
-- User ID personalization
-- Tool invocation logging
-
-## Requirements
-
-- Python 3.8+
-- OpenAI API key
-
-## Setup
-
-1. Clone this repository
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Create a `.env` file based on `.env.example`:
-   ```
-   cp .env.example .env
-   ```
-4. Add your OpenAI API key to the `.env` file
-
-## Security Note
-
-- Never commit your `.env` file with real API keys to version control
-- The `.env` file is included in `.gitignore` to prevent accidental exposure
-- When deploying, use environment variables or secure secrets management
-
-## Running the API
-
-Start the FastAPI server:
-
-```
+🛍️ AI-Powered E-Commerce Chat SDK
+A plug-and-play AI Chat SDK designed for online shopping websites.
+This SDK enables customers to chat using text, voice (English, Hindi, Arabic), or product images, and receive AI-powered product recommendations based on their past orders, browsing history, and clickstream behavior.
+Built with OpenAI Agents SDK, FastAPI, and vector search systems, the SDK integrates seamlessly into any e-commerce frontend.
+🚀 Features
+Chat SDK for Websites
+Embeddable JS Widget for any e-commerce site
+Supports mobile + desktop
+Multi-Modal Product Discovery
+Text-based search
+Image upload → similar product recommendations
+Voice input (English / Hindi / Arabic)
+Personalized Recommendations
+Uses historical:
+Orders
+Clickstream data
+Browsing behavior
+AI Shopping Assistant
+Answers product queries
+Suggests alternatives
+Helps in cart decisions
+Shows similar items based on image
+Conversation Memory
+Maintains context across multiple messages
+User ID–based personalization
+Robust API Layer
+Tools: recommendations, image similarity, voice transcript, order lookup
+Logs tool calls and conversation data
+📦 Requirements
+Python 3.9+
+Node.js (for the web widget)
+OpenAI API key
+FFmpeg (for voice processing)
+🛠️ Setup
+1. Clone the repository
+git clone https://github.com/yourusername/chat-sdk-ecommerce.git
+cd chat-sdk-ecommerce
+2. Install Python dependencies
+pip install -r requirements.txt
+3. Set environment variables
+Duplicate the example file:
+cp .env.example .env
+Add your OpenAI API key inside .env:
+OPENAI_API_KEY=your_key_here
+4. Install JS widget dependencies
+cd widget
+npm install
+🔐 Security Notes
+Never commit .env or real API keys into GitHub.
+.env is already in .gitignore.
+For deployment, always use:
+secure secret managers
+environment variables
+▶️ Running the API Server
+Start the FastAPI backend:
 python main.py
-```
-
-The API will be available at http://localhost:8000
-
-## API Endpoints
-
-### POST /chat
-
-Send a message to the customer support agent.
-
+Your API will be available at:
+http://localhost:8000
+🧩 API Endpoints
+POST /chat
+Send a message or image/voice to the AI shopping assistant.
 Request body:
-```json
 {
-  "message": "Where is my order ORD123456?",
-  "thread_id": "optional_thread_id_for_continuing_conversations",
-  "user_id": "optional_user_id_for_personalization"
+  "message": "Show me similar sneakers",
+  "image": "optional_base64_image",
+  "audio": "optional_base64_audio",
+  "thread_id": "optional_thread_id",
+  "user_id": "optional_user_id"
 }
-```
-
-Response:
-```json
+Example response:
 {
-  "response": "Your order ORD123456 has been shipped and is expected to be delivered by June 15, 2024. The tracking number is TRK789012.",
-  "thread_id": "thread_id_for_continuing_the_conversation"
+  "response": "Here are similar sneakers based on your past purchases.",
+  "products": [
+    { "id": "SKU123", "name": "AirMax Runner" }
+  ],
+  "thread_id": "thread_abc_123"
 }
-```
-
-## Example Interactions
-
-### Order Status Check
-```
-User: "I ordered some sneakers last week, order number ORD123456. Where are they?"
-Agent: "Your order ORD123456 has been shipped and is expected to be delivered by June 15, 2024. The tracking number is TRK789012."
-```
-
-### Return Initiation
-```
-User: "I want to return my headphones from order ORD789012. They don't work properly."
-Agent: "I've initiated a return for your order ORD789012. Your return ID is RET789012. Please package the items and use the provided return label."
-```
-
-### FAQ Query
-```
-User: "What's your return policy?"
-Agent: "You can return any item within 30 days of purchase for a full refund."
-```
-
-## License
-
-MIT
+💬 Example Interactions
+📝 Text
+User: "Show me dresses similar to the one I bought last month."
+Assistant: "Based on your order history, here are 5 similar dresses you may like."
+🖼️ Image
+User uploads: image of a sneaker  
+Assistant: "Here are visually similar sneakers available on our store."
+🎤 Voice
+User (Hindi): "मुझे रेड कलर की पार्टी वियर ड्रेस दिखाओ"
+Assistant: "यहाँ कुछ रेड पार्टी वियर ड्रेसेज़ हैं जो आपको पसंद आ सकती हैं।"
+🧪 Example Past Work (Github-Style References)
+These are example-style descriptions of past components that inspired this design:
+Image Similarity Search
+Built using CLIP embeddings + FAISS index
+("Product Visual AI Search Engine")
+Voice-to-Text Conversion System
+Multi-language STT (English/Hindi/Arabic) using Whisper API
+("AI Multilingual Voice Assistant")
+Personalized Recommendation Engine
+Merged order history + clickstream + embeddings
+("User Behavior-Based Ecommerce Recommender")
+Chat SDK + Widget
+Embeddable JS widget for ecommerce product search
+("AI Chat Widget for Retail")
+Add your GitHub links here if you have them.
+📄 License
+MIT License
+Feel free to modify, distribute, and use this project commercially.
